@@ -1,0 +1,91 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+                "moduleDirectory": ["node_modules", "src/"]
+            }
+        }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "rules": {
+        "eqeqeq": ["warn", "always"],
+        "max-params": ["warn", 3],
+        "no-extra-boolean-cast": ["error", {
+            "enforceForLogicalOperands": true
+        }],
+        "react/no-unescaped-entities": 0,
+        "jsx-quotes": [1, "prefer-double"],
+        "object-curly-spacing": ["warn", "always"],
+        "max-len": ["warn", {
+            "code": 150
+        }],
+        "linebreak-style": 0,
+        "prefer-promise-reject-errors": ["error"],
+        "array-bracket-spacing": ["error", "never"],
+        "arrow-spacing": "warn",
+        "block-spacing": "warn",
+        "comma-dangle": ["warn", "never"],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "require-jsdoc": 0,
+        "operator-linebreak": ["error", "after", {
+            "overrides": {
+                "?": "before",
+                ":": "before"
+            }
+        }],
+        "import/order": ["error", {
+            "groups": ["builtin", "external", "internal"],
+            "pathGroups": [{
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+            }],
+            "pathGroupsExcludedImportTypes": ["react"],
+            "newlines-between": "always",
+            "alphabetize": {
+                "order": "asc",
+                "caseInsensitive": true
+            }
+        }
+        ],
+        "react-hooks/rules-of-hooks": 2,
+        "react-hooks/exhaustive-deps": 0
+    },
+    "overrides": [
+        {
+            "files": "*.js",
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off"
+            }
+        }
+    ]
+}
